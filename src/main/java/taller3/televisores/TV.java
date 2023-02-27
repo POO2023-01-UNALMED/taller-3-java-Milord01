@@ -5,31 +5,31 @@ public class TV {
 	
 	
 	// Atributo_
-	public Marca[] marca;
-	public int canal=1;
+	public Marca marca;
+	private int canal=1;
 	public int precio=500;
-	public boolean estado;
-	public int volumen=1;
-	public Control[] control; 
+	private boolean estado;
+	private int volumen=1;
+	public Control control; 
 	private static int numTV; 
 	//constructor
-	public TV(Marca[] m, boolean e) {
+	public TV(Marca m, boolean e) {
 		numTV++;
 		marca=m;
 		estado=e;
 	}
 	
 	//metodos_set_y_get
-	public void setMarca(Marca[] marca) {
+	public void setMarca(Marca marca) {
 		this.marca = marca;
 	}
-    public Marca[] getMarca() {
+    public Marca getMarca() {
 	    return marca;
     }
-    public void setControl(Control[] control) {
+    public void setControl(Control control) {
 		this.control = control;
 	}
-    public Control[] getControl() {
+    public Control getControl() {
 		return control;
 	}
     public void setPrecio(int precio) {

@@ -39,8 +39,8 @@ private TV tv;
 		tv.setCanal(number);
 	}
 	
-	public void enlazar(TV tv) {
-		this.tv = tv;
+	public void enlazar(TV television) {
+		tv = television;
 		tv.setControl(this);
 	}
 
