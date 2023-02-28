@@ -5,13 +5,13 @@ public class TV {
 	
 	
 	// Atributo_
-	public Marca marca;
+	private Marca marca;
 	private int canal=1;
-	public int precio=500;
+	private int precio=500;
 	private boolean estado;
 	private int volumen=1;
-	public Control control; 
-	public static int numTV=0; 
+	private Control control; 
+	private static int numTV=0; 
 	//constructor
 	public TV(Marca m, boolean e) {
 		numTV++;
@@ -24,6 +24,9 @@ public class TV {
 	public static void setNumTV(int numTV) {
 		TV.numTV = numTV;
 	}
+	public static int getNumTV() {
+		return numTV;
+		}
 	//metodos_set_y_get
 	public void setMarca(Marca marca) {
 		this.marca = marca;
