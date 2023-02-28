@@ -11,7 +11,7 @@ public class TV {
 	private boolean estado;
 	private int volumen=1;
 	public Control control; 
-	private static int numTV; 
+	public static int numTV=0; 
 	//constructor
 	public TV(Marca m, boolean e) {
 		numTV++;
@@ -19,6 +19,11 @@ public class TV {
 		estado=e;
 	}
 	
+	//Contador_numTV
+	
+	public static void setNumTV(int numTV) {
+		TV.numTV = numTV;
+	}
 	//metodos_set_y_get
 	public void setMarca(Marca marca) {
 		this.marca = marca;
@@ -39,30 +44,31 @@ public class TV {
 		return precio;
 	}
     public void setVolumen(int volumen) {
+    	if(estado==true&&volumen<=7&&volumen>=0) {
 		this.volumen = volumen;
+    	}
 	}
     public int getVolumen() {
 		return volumen;
 	}
     public void setCanal(int canal) {
-		this.canal = canal;
+    	if(estado==true&&canal<=120&&canal>=1) {
+    		this.canal = canal;
+    	}
+		
 	}
     public int getCanal() {
 		return canal;
 	}
     
-    //Contador_numTV
-    public static int numTV() {
-    	return numTV;
-    	}
-    	
+    
     
     //Encendido_o_Apagado
-    public boolean turnOn(){
-    	return true;
+    public void turnOn(){
+    	estado= true;
     }
-    public boolean turnOff() {
-    	return false;
+    public void turnOff() {
+    	estado=false;
     }
     // getEstado
     public boolean getEstado() {
@@ -71,8 +77,8 @@ public class TV {
   
     //canal
     public int canalUp() {
-    	if(turnOn()==true) {
-    		if(canal>1&&canal<120) {
+    	if(estado==true) {
+    		if(canal<120) {
     			canal=canal+1;
     		}
     	}
@@ -80,8 +86,8 @@ public class TV {
     }
   
     public int canalDown() {
-    	if(turnOn()==true) {
-    		if(canal>1&&canal<120) {
+    	if(estado==true) {
+    		if(canal>1) {
     			canal=canal-1;
     		}
     	}
@@ -90,7 +96,7 @@ public class TV {
     
     //volumen_
     public int volumenUp() {
-    	if(turnOn()==true) {
+    	if(estado==true) {
     		if(volumen>0&&volumen<7) {
     			volumen=volumen+1;
     		}
@@ -98,7 +104,7 @@ public class TV {
     	return volumen;
     }
     public int volumenDown() {
-    	if(turnOn()==true) {
+    	if(estado==true) {
     		if(volumen>0&&volumen<7) {
     			volumen=volumen-1;
     		}
